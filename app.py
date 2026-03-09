@@ -80,25 +80,3 @@ if __name__ == "__main__":
     t.start()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-```
-
----
-
-**requirements.txt:**
-```
-flask==3.1.0
-requests==2.32.3
-icalendar==6.1.1
-```
-
----
-
-**Dockerfile:**
-```
-FROM python:3.12-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py .
-EXPOSE 5000
-CMD ["python", "app.py"]
