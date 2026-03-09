@@ -40,7 +40,7 @@ def fetch_and_merge():
     for cal in calendars:
         log.info(f"Fetching {cal['name']} from {cal['url']}")
         try:
-            resp = requests.get(cal['url'], timeout=15)
+            resp = requests.get(cal['url'], timeout=60)
             resp.raise_for_status()
             source = Calendar.from_ical(resp.text)
             for component in source.walk():
